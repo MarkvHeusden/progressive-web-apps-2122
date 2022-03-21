@@ -1,27 +1,35 @@
 {
-	"name": "progressive-web-apps-2122",
-	"version": "1.0.0",
-	"description": "",
-	"main": "app.js",
-	"directories": {
-		"doc": "docs",
-		"example": "examples"
-	},
-	"scripts": {
-		"start": "node app.js"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/MarkvHeusden/progressive-web-apps-2122.git"
-	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/MarkvHeusden/progressive-web-apps-2122/issues"
-	},
-	"homepage": "https://github.com/MarkvHeusden/progressive-web-apps-2122#readme",
-	"dependencies": {
-		"express": "^4.17.3"
-	}
+    "name": "progressive-web-apps-2122",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "directories": {
+        "doc": "docs",
+        "example": "examples"
+    },
+    "scripts": {
+        "start": "nodemon app.js",
+        "lint": "eslint src --ext .js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/MarkvHeusden/progressive-web-apps-2122.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/MarkvHeusden/progressive-web-apps-2122/issues"
+    },
+    "homepage": "https://github.com/MarkvHeusden/progressive-web-apps-2122#readme",
+    "dependencies": {
+        "express": "^4.17.3"
+    },
+    "devDependencies": {
+        "eslint": "^8.11.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-plugin-prettier": "^4.0.0",
+        "nodemon": "^2.0.15",
+        "prettier": "^2.6.0"
+    }
 }
