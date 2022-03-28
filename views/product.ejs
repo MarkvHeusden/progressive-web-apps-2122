@@ -1,0 +1,19 @@
+<%- include('./partials/head') %>
+<body>
+    <main>
+        <video></video>
+        <section class="result open">
+            <h1><%= productData.name %></h1>
+            <img src="<%= productData.img %>" alt="<%= productData.name %>" />
+            <h2>Voedingswaarden (100g)</h2>
+            <ul class="nutriments">
+                <% Object.values(productData.nutriments).forEach((nutri) => { %>
+                <li><span><%= Math.round(nutri.value * 10) / 1 %> <%=nutri.unit%></span><%=nutri.name%></li>
+                <% }) %>
+            </ul>
+            <h2>Ingrediënten</h2>
+            <p><%= productData.ingredients ? productData.ingredients : 'Geen informatie over ingrediënten gevonden.' %></p>
+        </section>
+    </main>
+</body>
+<%- include('./partials/foot') %>
