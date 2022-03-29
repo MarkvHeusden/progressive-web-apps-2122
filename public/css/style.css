@@ -53,10 +53,25 @@ main {
     will-change: transform;
 }
 
-video {
+video,
+form {
     height: 75%;
     object-fit: cover;
     background-color: var(--clr-dark);
+}
+
+form {
+    display: grid;
+    place-items: center;
+}
+
+input {
+    font-size: 1rem;
+    padding: 0.8em 0.8em;
+    border: none;
+    background-color: var(--clr-light);
+    border-radius: 0.3em;
+    width: 80%;
 }
 
 section {

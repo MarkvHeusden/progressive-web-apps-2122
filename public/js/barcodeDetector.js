@@ -22,6 +22,12 @@ function detectBarcode(video) {
             return
         } else {
             window.location.pathname = 'product/' + barcodes[0].rawValue
+
+            const detailsEl = document.querySelector('.details')
+            detailsEl.innerHTML = `
+            <h1>Product info ophalen...</h1>
+            <img src="../img/spinner.gif" />
+            `
         }
     }, 1000)
 }

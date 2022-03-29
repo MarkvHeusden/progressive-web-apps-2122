@@ -2,8 +2,12 @@
 <body>
     <main>
         <video></video>
+        <form action="" method="POST">
+            <input type="text" name="searchBar" placeholder="Barcode" />
+        </form>
+        <%# / ipv ../ ?? %>
         <section class="details">
-            <% if (error === 'not-found') { %>
+            <% if (error === 'no-info') { %>
             <div class="failed warning">
                 <img src="../img/warn.svg" alt="warning" />
                 <h1>Geen product info gevonden</h1>
@@ -11,22 +15,22 @@
             <p>Er zijn geen gegevens beschikbaar voor dit product. Probeer een ander product.</p>
             <% } else if (error === 'offline') {%>
             <div class="failed error">
-                <img src="img/error.svg" alt="error" />
+                <img src="/img/error.svg" alt="error" />
                 <h1>Geen internet verbinding</h1>
             </div>
             <p>Je bent offline. Je kunt alleen producten scannen die je eerder hebt gescand.</p>
             <% } else if (error === 'no-detector') {%>
             <div class="failed error">
-                <img src="img/error.svg" alt="error" />
+                <img src="/img/error.svg" alt="error" />
                 <h1>Scanner niet beschikbaar</h1>
             </div>
             <p>Scanner niet beschikbaar. Update je device & browser of probeer het op een ander apparaat.</p>
             <% } else {%>
             <div class="failed error">
-                <img src="img/error.svg" alt="error" />
+                <img src="../img/error.svg" alt="error" />
                 <h1>Onbekende fout opgetreden</h1>
             </div>
-            <p>Er zijn geen gegevens beschikbaar voor dit product. Probeer een ander product.</p>
+            <p>Er is een onbekende fout opgetreden. Probeer het opnieuw.</p>
             <% } %>
         </section>
     </main>

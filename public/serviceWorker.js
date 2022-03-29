@@ -2,15 +2,18 @@ const staticCache = 'site-static'
 const dynamicCache = 'site-dynamic'
 const staticAssets = [
     '/',
+    '/offline',
     '/js/main.js',
     '/js/barcodeDetector.js',
     '/css/remedy.css',
     '/css/style.css',
-    'manifest.json',
-    // '/img/barcode.png',
+    '/manifest.json',
+    '/img/spinner.gif',
     '/img/warn.svg',
     '/img/error.svg',
     'https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&family=Poppins:wght@700&display=swap',
+    'https://fonts.gstatic.com/s/opensans/v28/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsgH1x4gaVQUwaEQbjA.woff',
+    'https://fonts.gstatic.com/s/poppins/v19/pxiByp8kv8JHgFVrLCz7Z1xlFd2JQEk.woff2',
 ]
 
 // Install event
@@ -41,20 +44,41 @@ self.addEventListener('activate', (event) => {
 })
 
 // Fetch event
-
 self.addEventListener('fetch', (event) => {
-    // Check stored cache before requesting new data, then save new data
+    console.log('Fetching:' + event.request.url)
+
+    // show cached request from cache
     event.respondWith(
-        caches.match(event.request).then((cacheResponse) => {
-            return (
-                cacheResponse ||
-                fetch(event.request).then((fetchResponse) => {
-                    return caches.open(dynamicCache).then((cache) => {
-                        cache.put(event.request.url, fetchResponse.clone())
-                        return fetchResponse
+        caches.match(event.request).then((cachedResponse) => {
+            if (cachedResponse) {
+                return cachedResponse
+            } else {
+                return fetch(event.request)
+                    .then((fetchRes) => fetchRes)
+                    .catch(() => {
+                        return caches.open(staticCache).then((cache) => cache.match('/offline'))
                     })
-                })
-            )
+            }
         }),
     )
+
+    // Check stored cache before requesting new data, then save new data
+    // event.respondWith(
+    //     caches
+    //         .match(event.request)
+    //         .then((cacheResponse) => {
+    //             return (
+    //                 cacheResponse ||
+    //                 fetch(event.request).then((fetchResponse) => {
+    //                     return caches.open(dynamicCache).then((cache) => {
+    //                         cache.put(event.request.url, fetchResponse.clone())
+    //                         return fetchResponse
+    //                     })
+    //                 })
+    //             )
+    //         })
+    //         .catch(() => {
+    //             return caches.match('/offline')
+    //         }),
+    // )
 })

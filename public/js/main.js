@@ -10,13 +10,14 @@ if ('serviceWorker' in navigator) {
 
 // Check if Barcode Detector is available, get camera on pages with video element
 // Else, show no detector error
-if ('BarcodeDetector' in window) {
-    if (document.querySelector('video')) {
-        getCamera(document.querySelector('video'))
-    }
-} else {
-    if (window.location.pathname !== '/no-detector') {
-        window.location.pathname = '/no-detector'
+if (document.querySelector('video')) {
+    const searchEl = document.querySelector('form')
+    const videoEl = document.querySelector('video')
+    if ('BarcodeDetector' in window) {
+        searchEl.style.display = 'none'
+        getCamera(videoEl)
+    } else {
+        videoEl.style.display = 'none'
     }
 }
 
