@@ -8,9 +8,16 @@ if ('serviceWorker' in navigator) {
         .catch((err) => console.log('service worker not registered', err))
 }
 
-// Get user camera
-if (document.querySelector('video')) {
-    getCamera(document.querySelector('video'))
+// Check if Barcode Detector is available, get camera on pages with video element
+// Else, show no detector error
+if ('BarcodeDetector' in window) {
+    if (document.querySelector('video')) {
+        getCamera(document.querySelector('video'))
+    }
+} else {
+    if (window.location.pathname !== '/no-detector') {
+        window.location.pathname = '/no-detector'
+    }
 }
 
 // Add open/close function for detail pages
@@ -21,8 +28,3 @@ if (document.querySelector('.result')) {
 function toggleDetails() {
     this.classList.toggle('open')
 }
-
-// Check if Barcode Detector is available
-// if (!('BarcodeDetector' in window)) {
-//     showState('no-detector')
-// }

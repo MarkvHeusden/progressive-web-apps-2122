@@ -16,25 +16,19 @@ app.get('/scanning', (req, res) => {
     res.render('scanning')
 })
 
-app.get('/product/:barcode', async (req, res, next) => {
+app.get('/product/:barcode', async (req, res) => {
     getProductData(req.params.barcode)
         .then((productData) => res.render('product', { productData }))
-        .catch(() => res.render('error'))
+        .catch((status) => res.render('error', { error: status }))
 })
 
-// function errorHandler(req, res, status) {
-//     switch (status) {
-//         case 'no-info':
-//             res.render('error')
-//             break
+app.get('/offline', (req, res) => {
+    res.render('error', { error: 'offline' })
+})
 
-//         case 'no-detector':
-//             break
-
-//         default:
-//             break
-//     }
-// }
+app.get('/no-detector', (req, res) => {
+    res.render('error', { error: 'no-detector' })
+})
 
 app.listen(port, () => {
     console.log(`Example app listening on port http://localhost:${port}`)
