@@ -51,27 +51,75 @@ main {
     box-shadow: 0px 5px 15px 3px rgba(0, 0, 0, 0.1);
     border-radius: 1em;
     will-change: transform;
+    background-color: var(--clr-dark);
 }
 
-video,
-form {
+video {
+    display: none;
     height: 75%;
     object-fit: cover;
     background-color: var(--clr-dark);
 }
 
 form {
-    display: grid;
-    place-items: center;
+    width: calc(100% - 4rem);
+    /* height: fit-content; */
+    position: absolute;
+    transition: 0.3s;
+    top: 2rem;
+    left: 2rem;
+}
+
+/* button {
+    border: none;
+    border-radius: 1rem;
+    width: 2rem;
+    height: 2rem;
+    background-color: var(--clr-light);
+    box-shadow: 0px -5px 15px 3px rgba(0, 0, 0, 0.1);
+}
+
+button:focus ~ input {
+    width: 80%;
+} */
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 input {
     font-size: 1rem;
-    padding: 0.8em 0.8em;
+    padding: 0.8em;
     border: none;
     background-color: var(--clr-light);
+    border-radius: 1.5em;
+    width: 3rem;
+    height: 3rem;
+    transition: 0.3s;
+    background-image: url(../img/search.svg);
+    background-repeat: no-repeat;
+    background-size: 1.5rem;
+    background-position: 0.75rem center;
+    overflow: hidden;
+    padding-left: 2rem;
+}
+
+input::placeholder {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+input:focus::placeholder {
+    opacity: 1;
+}
+
+input:focus,
+input:valid {
+    width: 100%;
     border-radius: 0.3em;
-    width: 80%;
+    padding-left: 3rem;
 }
 
 section {
