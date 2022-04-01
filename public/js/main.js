@@ -14,9 +14,9 @@ if (document.querySelector('video')) {
     const searchEl = document.querySelector('form')
     const videoEl = document.querySelector('video')
     if ('BarcodeDetector' in window) {
-        // videoEl.style.display = 'block'
+        videoEl.style.display = 'block'
         // searchEl.style.display = 'none'
-        // getCamera(videoEl)
+        getCamera(videoEl)
     }
 }
 
