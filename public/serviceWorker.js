@@ -1,11 +1,10 @@
-const staticCache = 'site-static-v2'
-const dynamicCache = 'site-dynamic-v2'
+const staticCache = 'site-static-v1'
+const dynamicCache = 'site-dynamic-v1'
 const staticAssets = [
     '/',
     '/offline',
     '/js/main.js',
     '/js/barcodeDetector.js',
-    '/css/remedy.css',
     '/css/style.css',
     '/manifest.json',
     '/img/spinner.gif',
@@ -13,14 +12,12 @@ const staticAssets = [
     '/img/error.svg',
     '/img/search.svg',
     '/img/barcode.png',
-    'https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&family=Poppins:wght@700&display=swap',
     'https://fonts.gstatic.com/s/opensans/v28/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsgH1x4gaVQUwaEQbjA.woff',
     'https://fonts.gstatic.com/s/poppins/v19/pxiByp8kv8JHgFVrLCz7Z1xlFd2JQEk.woff2',
 ]
 
 // Install event
 self.addEventListener('install', (event) => {
-    console.log('sw installed')
     // Open/create new static cache
     event.waitUntil(
         caches

@@ -38,10 +38,6 @@ app.get('/offline', (req, res) => {
     res.render('error', { error: 'offline' })
 })
 
-// app.get('/no-detector', (req, res) => {
-//     res.render('error', { error: 'no-detector' })
-// })
-
 app.listen(port, () => {
     console.log(`Example app listening on port http://localhost:${port}`)
 })
