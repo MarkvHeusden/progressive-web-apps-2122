@@ -11,11 +11,14 @@ Voedings Check is een applicatie om eten en drinken met een barcode te kunnen sc
 ## 📝 Table of contents
 
 -   User Story
+-   How to install
 -   Features
 -   Hoe gebruik ik de applicatie?
+-   Performance
 -   Live demo
 -   Todo's
 -   Activity Diagram
+-   Packages
 -   API's
 -   License
 
@@ -23,9 +26,32 @@ Voedings Check is een applicatie om eten en drinken met een barcode te kunnen sc
 
 Als foodie, wil ik tijdens het boodschappen doen een product kunnen scannen, zodat ik meer informatie over het product kan lezen en een goede keuze kan maken die bij mijn dieet past.
 
+## 🔧 How to install
+
+Clone deze repository naar de gewenste locatie met het volgende commando in je terminal:
+
+```
+git clone https://github.com/MarkvHeusden/Matching-app.git
+```
+
+Navigeer naar de map en installeer vervolgens de packages met het commando:
+
+```
+npm install
+```
+
+En start vervolgens de lokale server met het commando:
+
+```
+npm start
+```
+
+✅ Zo simpel is het! Je kunt de server nu bekijken op http://localhost:3000
+
 ## 🛠 Features
 
 -   Producten met barcode scannen
+-   Barcodes invoeren met de zoekfunctie
 -   Product info bekijken
 -   Voedingswaarden ophalen
 -   Ingrediënten bekijken
@@ -34,19 +60,38 @@ Als foodie, wil ik tijdens het boodschappen doen een product kunnen scannen, zod
 
 Je gebruikt Voedings Check door op de live demo hieronder te klikken. Vervolgens kun je op de knop 'Start scannen' drukken om te beginnen. Na het geven van toestemming voor het gebruik van je camera kun je barcodes van producten voor je camera houden. Wanneer iets gescand is krijg je de product informatie te zien. Mocht er geen product info beschikbaar zijn of ondersteunt jouw browser de barcode scanner niet dan krijg je hier een melding over.
 
+## 🏎️ Performance
+
+Om de performance te verbeteren heb ik gebruik gemaakt van de volgende optimalisaties:
+
+-   Service worker, met static & dynamic caching
+-   Caching headers toegevoegd
+-   Revisioning om cache te updaten
+-   Compression middleware gebruikt
+-   Laden van fonts optimaliseren
+-   Statische bestanden minify'en met npm scripts
+
+![](./docs/lighthouse.png)
+
 ## 🌐 Live demo
 
-Probeer de applicatie zelf uit op: https://markvheusden.github.io/voedings-check/.
+Probeer de applicatie zelf uit op:
 
 ## ✅ Todo's
 
 -   Scanner werkend maken op meer browsers (zoals Safari)
--   Zoekfunctie toevoegen
 -   Meer product info weergeven / koppelen aan jouw dieët
 
 ## 📊 Activity Diagram
 
 ![](./docs/activity-diagram.png)
+
+## 🌐 NPM Packages
+
+-   Express
+-   EJS
+-   Node-fetch
+-   Compression
 
 ## 🗄️ API's
 

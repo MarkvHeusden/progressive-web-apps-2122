@@ -1,7 +1,7 @@
 {
-    "name": "progressive-web-apps-2122",
+    "name": "voedings-check-node",
     "version": "1.0.0",
-    "description": "",
+    "description": "Scan eten & drinken met Voedings Check om zo te weten wat je consumeert",
     "main": "app.js",
     "directories": {
         "doc": "docs",
@@ -9,19 +9,21 @@
     },
     "scripts": {
         "start": "nodemon app.js",
-        "lint": "eslint src --ext .js"
+        "lint": "eslint src --ext .js",
+        "minify-js": "minify ./public/js/main.js > ./public/js/main.min.js",
+        "minify-css": "minify ./public/css/style.css > ./public/css/style.min.css"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/MarkvHeusden/progressive-web-apps-2122.git"
+        "url": "git+https://github.com/MarkvHeusden/voedings-check-node.git"
     },
     "keywords": [],
     "author": "",
-    "license": "ISC",
+    "license": "MIT",
     "bugs": {
-        "url": "https://github.com/MarkvHeusden/progressive-web-apps-2122/issues"
+        "url": "https://github.com/MarkvHeusden/voedings-check-node/issues"
     },
-    "homepage": "https://github.com/MarkvHeusden/progressive-web-apps-2122#readme",
+    "homepage": "https://github.com/MarkvHeusden/voedings-check-node#readme",
     "type": "module",
     "dependencies": {
         "compression": "^1.7.4",
