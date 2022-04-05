@@ -25,9 +25,7 @@ self.addEventListener('install', (event) => {
     event.waitUntil(
         caches
             .open(staticCache)
-            .then((cache) => {
-                cache.addAll(staticAssets)
-            })
+            .then((cache) => cache.addAll(staticAssets))
             .then(() => self.skipWaiting()),
     )
 })
@@ -37,15 +35,7 @@ self.addEventListener('activate', (event) => {
     // Delete old cache
     event.waitUntil(
         caches.keys().then((keys) => {
-            return Promise.all(
-                keys
-                    .filter((key) => {
-                        return key !== staticCache && key !== dynamicCache
-                    })
-                    .map((key) => {
-                        return caches.delete(key)
-                    }),
-            )
+            return Promise.all(keys.filter((key) => key !== staticCache && key !== dynamicCache).map((key) => caches.delete(key)))
         }),
     )
     event.waitUntil(clients.claim())
@@ -53,7 +43,6 @@ self.addEventListener('activate', (event) => {
 
 // Fetch event
 self.addEventListener('fetch', (event) => {
-    // console.log(event.request.url)
     event.respondWith(
         // Check if requested data is already in cache
         caches.match(event.request).then((cachedResponse) => {
@@ -64,9 +53,8 @@ self.addEventListener('fetch', (event) => {
                 // Else fetch the new data
                 return fetch(event.request)
                     .then((fetchResponse) => {
-                        console.log('fs = ', fetchResponse)
                         // Save new data in dynamic cache
-                        caches.open(dynamicCache).then((cache) => {
+                        return caches.open(dynamicCache).then((cache) => {
                             cache.put(event.request.url, fetchResponse.clone())
                             return fetchResponse
                         })
@@ -78,67 +66,4 @@ self.addEventListener('fetch', (event) => {
             }
         }),
     )
-
-    // event.respondWith(
-    //     (async () => {
-    //         const cachedResponse = await caches.match(event.request)
-    //         if (cachedResponse) {
-    //             return cachedResponse
-    //         }
-
-    //         const response = await fetch(event.request)
-    //         console.log('response;', response)
-    //         if (response) {
-    //             console.log('geen respons')
-    //             return response
-    //         } else {
-    //             return caches.open(staticCache).then((cache) => cache.match('/offline'))
-    //         }
-
-    // if (dynamicCache) {
-    //     const cache = await caches.open(dynamicCache)
-    //     await cache.put(event.request, response.clone())
-    // }
-    // return response
-    //     })(),
-    // )
 })
-
-// event.respondWith(
-//     (async () => {
-//         const cachedResponse = await caches.match(event.request)
-//         if (cachedResponse) {
-//             return cachedResponse
-//         }
-
-//         await fetch(event.request)
-//             .then((fetchResponse) => {
-//                 console.log('fs = ', fetchResponse)
-//                 // Save new data in dynamic cache
-//                 caches.open(dynamicCache).then((cache) => {
-//                     cache.put(event.request.url, fetchResponse.clone())
-//                     return fetchResponse
-//                 })
-//             })
-//             .catch(() => {
-//                 // Show offline page if fetch failed
-//                 return caches.open(staticCache).then((cache) => cache.match('/offline'))
-//             })
-
-// const fetchResponse = await fetch(event.request)
-
-// if (fetchResponse) {
-//     console.log('fs = ', fetchResponse)
-//     // Save new data in dynamic cache
-//     caches.open(dynamicCache).then((cache) => {
-//         cache.put(event.request.url, fetchResponse.clone())
-//         return fetchResponse
-//     })
-// } else {
-//     // Show offline page if fetch failed
-//     return caches.open(staticCache).then((cache) => cache.match('/offline'))
-// }
-
-// return fetchResponse
-// })(),
-// )
