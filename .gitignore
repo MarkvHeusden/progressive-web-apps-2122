@@ -4,6 +4,9 @@
 # ESLint
 .eslintrc
 
+# Procfile
+Procfile
+
 # DS_Store
 .DS_Store
 
