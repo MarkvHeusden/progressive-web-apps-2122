@@ -3,17 +3,13 @@ const dynamicCache = 'site-dynamic-v1'
 const staticAssets = [
     '/',
     '/offline',
-    '/js/main.js',
-    '/js/barcodeDetector.js',
-    '/css/style.css',
+    '/css/style.min.css',
     '/manifest.json',
     '/img/spinner.gif',
-    '/img/warn.svg',
     '/img/error.svg',
-    '/img/search.svg',
-    '/img/barcode.png',
     'https://fonts.gstatic.com/s/opensans/v28/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsgH1x4gaVQUwaEQbjA.woff',
     'https://fonts.gstatic.com/s/poppins/v19/pxiByp8kv8JHgFVrLCz7Z1xlFd2JQEk.woff2',
+    '/js/main.min.js',
 ]
 
 // Install event

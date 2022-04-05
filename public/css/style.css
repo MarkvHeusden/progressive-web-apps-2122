@@ -98,19 +98,6 @@ form {
     left: 2rem;
 }
 
-/* button {
-    border: none;
-    border-radius: 1rem;
-    width: 2rem;
-    height: 2rem;
-    background-color: var(--clr-light);
-    box-shadow: 0px -5px 15px 3px rgba(0, 0, 0, 0.1);
-}
-
-button:focus ~ input {
-    width: 80%;
-} */
-
 input[type='number']::-webkit-inner-spin-button,
 input[type='number']::-webkit-outer-spin-button {
     -webkit-appearance: none;
