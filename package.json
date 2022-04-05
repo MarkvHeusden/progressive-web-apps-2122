@@ -8,7 +8,7 @@
         "example": "examples"
     },
     "scripts": {
-        "start": "nodemon app.js",
+        "start": "node app.js",
         "lint": "eslint src --ext .js",
         "minify-js": "minify ./public/js/main.js > ./public/js/main.min.js",
         "minify-css": "minify ./public/css/style.css > ./public/css/style.min.css"
