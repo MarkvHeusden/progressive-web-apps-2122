@@ -11,11 +11,11 @@ Voedings Check is een applicatie om eten en drinken met een barcode te kunnen sc
 ## 📝 Table of contents
 
 -   User Story
+-   Live demo
 -   How to install
 -   Features
 -   Hoe gebruik ik de applicatie?
 -   Performance
--   Live demo
 -   Todo's
 -   Activity Diagram
 -   Packages
@@ -26,17 +26,21 @@ Voedings Check is een applicatie om eten en drinken met een barcode te kunnen sc
 
 Als foodie, wil ik tijdens het boodschappen doen een product kunnen scannen, zodat ik meer informatie over het product kan lezen en een goede keuze kan maken die bij mijn dieet past.
 
+## 🌐 Live demo
+
+Probeer de applicatie zelf uit op: https://voedings-check.herokuapp.com/
+
 ## 🔧 How to install
 
 Clone deze repository naar de gewenste locatie met het volgende commando in je terminal:
 
 ```
-git clone https://github.com/MarkvHeusden/Matching-app.git
+git clone https://github.com/MarkvHeusden/voedings-check-node.git
 ```
 
 Navigeer naar de map en installeer vervolgens de packages met het commando:
 
-```
+```js
 npm install
 ```
 
@@ -72,10 +76,6 @@ Om de performance te verbeteren heb ik gebruik gemaakt van de volgende optimalis
 -   Statische bestanden minify'en met npm scripts
 
 ![](./docs/lighthouse.png)
-
-## 🌐 Live demo
-
-Probeer de applicatie zelf uit op:
 
 ## ✅ Todo's
 
